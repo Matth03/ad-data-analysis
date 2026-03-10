@@ -57,7 +57,7 @@ jobs:
           git pull origin master --rebase
           git stash pop || echo "No changes to pop"
           
-          git add -f marketing_data.db data/processed/*.csv weekly_report.txt
+          git add -f marketing_data.db data/processed/*.csv weekly_report.txt performance_report.png
           
           git commit -m "Automated Data Refresh: $(date +'%Y-%m-%d')" || echo "No changes detected."
           git push origin master
