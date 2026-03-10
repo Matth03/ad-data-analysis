@@ -38,9 +38,15 @@ jobs:
           pip install -r requirements.txt
 
       # --- 3. Execution ---
-      # Executes the main Python script which triggers the API call and ETL process
       - name: Execute ETL Pipeline
         run: python main.py
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }} # Itt adjuk át a kulcsot!
+
+      - name: Run AI Assistant
+        run: python src/ai_assistant.py >> weekly_report.txt
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
 
       #Run it to refresh charts
       - name: Refresh Visual Reports
@@ -52,6 +58,6 @@ jobs:
           # Identity configuration for the automated bot
           git config --global user.name 'Mate Hermann'
           git config --global user.email 'mate3829@gmail.com'
-          git add marketing_data.db data/raw/*.csv data/processed/*.csv docs/*.png
+          git add marketing_data.db data/processed/*.csv weekly_report.txt
           git commit -m "Automated Data Refresh: $(date +'%Y-%m-%d')" || echo "No changes detected in datasets."
           git push

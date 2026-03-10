@@ -1,8 +1,10 @@
 import logging
+import os
 from src.api_client import trends_data
 from src.generator import generate_mock_ads
 from src.processor import merge_and_clean
 from src.database import save_to_sqlite
+from src.ai_assistant import get_ai_insight  # <--- Új import az AI-hoz
 
 # --- Logging Configuration ---
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -16,7 +18,7 @@ def main():
     2. Data Simulation (Mock Ads)
     3. Processing & Normalization
     4. Database Persistence
-    5. Validation & Statistics
+    5. AI Insight Generation (RAG)
     """
     logging.info("--- Starting Marketing Insight Pipeline ---")
 
@@ -44,13 +46,21 @@ def main():
         logging.info("Step 4: Committing master dataset to SQLite database...")
         save_to_sqlite(master_df, "marketing_data.db")
 
-        # --- Step 5: Validation & Statistics ---
-        # Calculating Pearson correlation coefficient between market trends and spend
+        # --- Step 5: AI-Driven Insights (RAG) ---
+        logging.info("Step 5: Generating AI insights from processed data...")
+        insight = get_ai_insight()
+
+        report_path = "weekly_report.txt"
+        with open(report_path, "w", encoding="utf-8") as f:
+            f.write(insight)
+
+        # --- Step 6: Validation & Statistics ---
         correlation = master_df['norm_trend'].corr(master_df['norm_spend'])
 
         logging.info("--- Pipeline Execution Complete ---")
         logging.info(f"Calculated Pearson Correlation (Trends vs Spend): {correlation:.2f}")
-        logging.info("The analytical environment 'marketing_data.db' is ready for BI reporting.")
+        logging.info(f"AI Insight Report generated at {report_path}")
+        print("\n--- LATEST AI ANALYSIS ---\n", insight, "\n")
     else:
         logging.error("Pipeline failed during the processing stage.")
 
