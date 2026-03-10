@@ -38,7 +38,7 @@ def get_ai_insight():
     # --- Step 3: AI Generation ---
     try:
         response = client.models.generate_content(
-            model="gemini-1.5-flash",
+            model="models/gemini-1.5-flash",
             contents=f"""
             Role: You are a Senior Marketing Analyst.
             Data from the last 7 days:
