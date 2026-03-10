@@ -11,7 +11,7 @@ on:
 
   # Manual trigger: Runs immediately whenever code is pushed to the main branch
   push:
-    branches: [ main ]
+    branches: [ master ]
 
 jobs:
   build_and_run:
