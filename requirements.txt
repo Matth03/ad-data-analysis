@@ -5,3 +5,5 @@ matplotlib
 seaborn
 google-genai
 python-dotenv
+streamlit
+plotly
