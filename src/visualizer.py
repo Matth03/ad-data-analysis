@@ -4,6 +4,7 @@ import os
 import sqlite3
 import pandas as pd
 import logging
+import matplotlib.dates as mdates
 
 # --- Logging Configuration ---
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -39,11 +40,16 @@ def create_plots():
         plt.style.use('seaborn-v0_8')
         fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(12, 10))
 
-        # --- Plot 1: Market Trend vs. Ad Spend (Time-Series) ---
-        ax1.plot(df['date'], df['norm_trend'], label='Market Demand (Google Trends)', color='#1f77b4', linewidth=2)
-        ax1.plot(df['date'], df['norm_spend'], label='Ad Spend (Simulated)', color='#ff7f0e', linestyle='--')
+        # --- Plot 1: Market Trend vs. Ad Spend ---
+        ax1.plot(df['date'], df['norm_trend'], label='Piaci kereslet (Trends)', color='#1f77b4', linewidth=2)
+        ax1.plot(df['date'], df['norm_spend'], label='Hirdetési költés (Szimulált)', color='#ff7f0e', linestyle='--')
 
-        ax1.set_title('Market Demand vs. Advertising Activity (Normalized Time-Series)', fontsize=14, pad=15)
+        ax1.xaxis.set_major_locator(mdates.AutoDateLocator())
+        ax1.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))
+
+        plt.setp(ax1.get_xticklabels(), rotation=30, ha='right')
+
+        ax1.set_title('Market Demand vs. Advertising Activity', fontsize=14, pad=15)
         ax1.set_xlabel('Timeline')
         ax1.set_ylabel('Normalized Scale (0-1)')
         ax1.legend(loc='upper left')
