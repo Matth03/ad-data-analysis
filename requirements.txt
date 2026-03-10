@@ -1,0 +1,6 @@
+pandas
+numpy
+pytrends
+matplotlib
+seaborn
+sqlite3
