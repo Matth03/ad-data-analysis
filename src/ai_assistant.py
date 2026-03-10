@@ -38,24 +38,15 @@ def get_ai_insight():
     # --- Step 3: AI Generation ---
     try:
         response = client.models.generate_content(
-            model="models/gemini-1.5-flash",
-            contents=f"""
-            Role: You are a Senior Marketing Analyst.
-            Data from the last 7 days:
-            {data_summary}
-
-            Task: Provide a concise, professional analysis in HUNGARIAN:
-            1. Main trends observed.
-            2. Ad spend efficiency vs. search interest.
-            3. One specific recommendation for next week.
-            """
+            model="gemini-2.0-flash",
+            contents=f"Te egy marketing elemző vagy. Adatok: {data_summary}. Kérlek elemezd magyarul!"
         )
         return response.text
-
     except Exception as e:
-        if "429" in str(e):
-            return "AI Insight: Google API quota reached. Please try again in 1 minute!"
-        return f"AI Error: {e}"
+        # Itt egy kis trükk: ha 404, kiíratjuk, milyen modelleket lát a rendszer
+        if "404" in str(e):
+            return "AI Hiba: Modell nem található. Ellenőrizd a modell nevét (gemini-1.5-flash)."
+        return f"AI Hiba: {e}"
 
 
 if __name__ == "__main__":
