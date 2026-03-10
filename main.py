@@ -22,6 +22,9 @@ def main():
     """
     logging.info("--- Starting Marketing Insight Pipeline ---")
 
+    for folder in ['data/raw', 'data/processed']:
+        os.makedirs(folder, exist_ok=True)
+
     # --- Step 1: Data Acquisition & Storage ---
     trends_path = 'data/raw/trends_raw.csv'
     trends_data.to_csv(trends_path)
