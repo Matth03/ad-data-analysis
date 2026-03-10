@@ -1,17 +1,35 @@
-# Marketing Insight ETL Pipeline
+# Marketing Data Pipeline & AI Insights
 
-This repository contains a Python-based data pipeline designed to synchronize market search trends with advertising performance metrics.
+This project is a fully automated **End-to-End Data Engineering** solution that tracks market trends, correlates them with advertising spend, and generates AI-powered strategic insights.
 
-## Project Concept
-In digital marketing, reacting to market changes quickly is a competitive advantage. This tool aims to automate the observation of search interest (via Google Trends) and compare it with advertising activities. 
+### Tech Stack
+* **Language:** Python 3.12+
+* **Data Source:** Google Trends (via Pytrends) & Simulated Ad Data
+* **Storage:** SQLite
+* **Orchestration:** GitHub Actions
+* **AI Engine:** Google Gemini 2.0 Flash
+* **Visualization:** Streamlit & Plotly (Interactive Dashboard)
 
-**Note:** Since real-world marketing data is often protected by NDAs, this project features a custom **Stochastic Simulation Engine** to generate realistic, noise-corrupted marketing datasets for demonstration and testing purposes.
 
 
+### System Architecture
+1.  **ETL Process:** A weekly GitHub Action triggers the extraction of marketing data, which is then cleaned and transformed using Pandas.
+2.  **Database Management:** Processed data is stored in an SQLite database (`marketing_data.db`), ensuring data persistence and historical tracking.
+3.  **AI Analysis:** The system feeds the latest metrics into the **Gemini 2.0 Flash** model to generate a professional marketing report (`weekly_report.txt`).
+4.  **Automated Deployment:** Post-execution, the bot commits the updated database back to the repository, triggering an instant update on the live dashboard.
+5.  **Interactive BI:** A hosted **Streamlit** application provides real-time visualization, allowing users to explore trends and read AI insights.
 
-## Key Modules
-- **`api_client.py`**: Handles connection to Google Trends API (via PyTrends).
-- **`generator.py`**: Simulates Meta/Google Ads data using Gaussian noise and time-lag logic.
-- **`processor.py`**: Performs ETL operations, Min-Max normalization, and KPI engineering.
-- **`database.py`**: Manages the persistence layer using a local SQLite instance.
-- **`visualizer.py`**: Generates diagnostic plots (Time-series & Correlation heatmaps).
+### Key Features
+* **Rate-Limit Resilience:** Custom fallback logic to handle API quotas (429 errors).
+* **CI/CD Automation:** Completely hands-off operation via GitHub workflows.
+* **Interactive Analytics:** Dynamic date scaling and hover-active charts using Plotly.
+* **Secure Credential Management:** Implementation of GitHub Secrets for API protection.
+
+---
+
+###  Live Dashboard
+You can access the interactive analysis here:
+**https://ad-data-analysis-marketing-visualization.streamlit.app/**
+
+---
+*Automated Data Pipeline | Built with Streamlit, Plotly & Gemini AI*
