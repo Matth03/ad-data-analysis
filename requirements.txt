@@ -3,6 +3,5 @@ numpy
 pytrends
 matplotlib
 seaborn
-sqlite3
 google-genai
 python-dotenv
