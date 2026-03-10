@@ -52,7 +52,12 @@ jobs:
         run: |
           git config --global user.name 'Mate Hermann'
           git config --global user.email 'mate3829@gmail.com'
-          git pull origin master 
+          
+          git stash
+          git pull origin master --rebase
+          git stash pop || echo "No changes to pop"
+          
           git add -f marketing_data.db data/processed/*.csv weekly_report.txt
-          git commit -m "Automated Data Refresh: $(date +'%Y-%m-%d')" || echo "No changes"
-          git push
+          
+          git commit -m "Automated Data Refresh: $(date +'%Y-%m-%d')" || echo "No changes detected."
+          git push origin master
