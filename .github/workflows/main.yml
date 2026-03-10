@@ -43,11 +43,6 @@ jobs:
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }} # Itt adjuk át a kulcsot!
 
-      - name: Run AI Assistant
-        run: python src/ai_assistant.py >> weekly_report.txt
-        env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-
       #Run it to refresh charts
       - name: Refresh Visual Reports
         run: python src/visualizer.py
@@ -55,9 +50,9 @@ jobs:
       # --- 4. Data Persistence ---
       - name: Commit and Push updated data
         run: |
-          # Identity configuration for the automated bot
           git config --global user.name 'Mate Hermann'
           git config --global user.email 'mate3829@gmail.com'
-          git add marketing_data.db data/processed/*.csv weekly_report.txt
-          git commit -m "Automated Data Refresh: $(date +'%Y-%m-%d')" || echo "No changes detected in datasets."
+          git pull origin master 
+          git add -f marketing_data.db data/processed/*.csv weekly_report.txt
+          git commit -m "Automated Data Refresh: $(date +'%Y-%m-%d')" || echo "No changes"
           git push
