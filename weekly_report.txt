@@ -1,1 +1,53 @@
-AI Hiba: Modell nem található. Ellenőrizd a modell nevét (gemini-1.5-flash).
+Rendben, marketing elemzőként áttekintem a megadott adatokat, és részletes elemzést készítek magyarul.
+
+---
+
+**Marketing Elemzés: Heti teljesítmény áttekintés**
+
+**Dátum:** 2026. május 26.
+**Elemzés időszaka:** 2026. május 19-25.
+
+**1. Bevezetés**
+Az alábbi elemzés a megadott adatok alapján a kampány teljesítményét vizsgálja a 2026. május 19-től május 25-ig terjedő egyhetes időszakban. Fókuszban a költés (spend_huf), a kattintások (clicks) és egy normalizált trend mutató (norm_trend) közötti összefüggések, valamint a kattintásonkénti költség (CPC) hatékonysága áll.
+
+**2. Adatok áttekintése és Számított mutatók**
+
+Először is kiszámoljuk a kattintásonkénti költséget (CPC = spend_huf / clicks) minden egyes napra, hogy jobban megértsük a hatékonyságot.
+
+| Dátum        | norm_trend | spend_huf (Ft) | clicks | CPC (Ft/kattintás) |
+| :----------- | :--------- | :------------- | :----- | :------------------ |
+| 2026-05-25   | 0.1698     | 3941           | 119    | **33.12**           |
+| 2026-05-24   | 0.5472     | 5045           | 174    | **29.00**           |
+| 2026-05-23   | 0.0943     | 9730           | 288    | **33.78**           |
+| 2026-05-22   | 0.0377     | 8042           | 233    | **34.51**           |
+| 2026-05-21   | 0.8302     | 3544           | 133    | **26.65**           |
+| 2026-05-20   | 0.8868     | 9513           | 363    | **26.21**           |
+| 2026-05-19   | 0.1887     | 6591           | 201    | **32.79**           |
+| **Összesen/Átlag** |        | **46406**      | **1511** | **30.71 (átlag)**   |
+
+**3. Főbb megállapítások**
+
+*   **Változó teljesítmény:** A kampány teljesítménye jelentős ingadozást mutatott a vizsgált héten, mind a költés, mind a kattintások, mind a kattintásonkénti költség (CPC) tekintetében.
+*   **A `norm_trend` mutató kritikus szerepe:** A legszembetűnőbb összefüggés a `norm_trend` és a CPC között figyelhető meg:
+    *   **Magas `norm_trend` = alacsonyabb (jobb) CPC:** Ahol a `norm_trend` érték magas volt (pl. május 20-án: 0.8868 és május 21-én: 0.8302), ott a CPC lényegesen alacsonyabb, azaz a kampány sokkal hatékonyabban működött (26.21 Ft és 26.65 Ft).
+    *   **Alacsony `norm_trend` = magasabb (rosszabb) CPC:** Fordítva, azokon a napokon, ahol a `norm_trend` a legalacsonyabb volt (pl. május 22-én: 0.0377 és május 23-án: 0.0943), ott a CPC a legmagasabb volt, ami gyengébb hatékonyságot jelez (34.51 Ft és 33.78 Ft).
+*   **Kiemelkedően hatékony napok (Május 20-21):**
+    *   **Május 20:** A legmagasabb `norm_trend` érték (0.8868) mellett a legnagyobb költés (9513 Ft) hozta a legtöbb kattintást (363 db) és a legjobb CPC-t (26.21 Ft). Ez volt a hét legkiemelkedőbb teljesítményű napja.
+    *   **Május 21:** Viszonylag alacsony költéssel (3544 Ft) és a második legmagasabb `norm_trend` értékkel (0.8302) sikerült egy rendkívül jó, 26.65 Ft-os CPC-t elérni. Ez a nap a hatékony, de kisebb volumenű költés példája.
+*   **Kiemelkedően gyenge napok (Május 22-23):**
+    *   **Május 22:** A legalacsonyabb `norm_trend` érték (0.0377) mellett a költés 8042 Ft volt, ami 233 kattintást eredményezett, de a legrosszabb CPC-vel (34.51 Ft). Ezen a napon a költés nagy része valószínűleg kevésbé hatékonyan történt.
+    *   **Május 23:** Alacsony `norm_trend` (0.0943) mellett a hét legmagasabb költése (9730 Ft) is "csak" 288 kattintást hozott, viszonylag rossz CPC-vel (33.78 Ft). Ez a nap is jelentős hatékonysági problémákra utal a nagy volumen ellenére.
+*   **Átlagos teljesítményű napok (Május 19, 24, 25):** Ezeken a napokon a `norm_trend` és a CPC is az átlagos tartományba esett.
+
+**4. Javaslatok és Következtetések**
+
+1.  **A `norm_trend` mutató vizsgálata:** Ennek a mutatónak a megértése kulcsfontosságú. Mi jelöl a `norm_trend`? Piaci trendet, keresletet, kampány relevanciáját, versenyhelyzetet, vagy valamilyen belső optimalizálási faktort? Amint ezt tisztázzuk, célzottan tudunk reagálni.
+2.  **Költségvetés optimalizálása a `norm_trend` alapján:** Jelen adatok alapján erősen javasolt a költések átcsoportosítása.
+    *   **Növeljük a költést, amikor a `norm_trend` magas:** Május 20-a kiváló példa, ahol a magas költés (és magas `norm_trend`) extra hatékonyságot hozott.
+    *   **Fontoljuk meg a költés csökkentését, amikor a `norm_trend` alacsony:** Május 22-23-án a magas költés ellenére a hatékonyság gyenge volt. Ezeken a napokon érdemesebb lehet csökkenteni a büdzsét, vagy alaposabban megvizsgálni a kampány beállításait.
+3.  **A gyengén teljesítő napok elemzése:** Május 22-23-án vajon miért volt olyan alacsony a `norm_trend`?
+    *   Változott-e a célközönség, a hirdetési kreatív, a landing page, a konkurencia vagy a külső piaci tényező?
+    *   Érdemes A/B tesztelni különböző hirdetéseket vagy célzási beállításokat ezeken a "gyengébb" napokon.
+4.  **Hosszabb távú trendek figyelése:** Egy hét adat kevés ahhoz, hogy szezonális vagy hosszabb távú trendeket állapítsunk meg. Javasolt a teljesítményt folyamatosan monitorozni, és heti/havi szinten is áttekinteni.
+
+**Összegzésként elmondható, hogy a `norm_trend` mutató rendkívül erős indikátora a kampány hatékonyságának. A jövőbeli optimalizálás kulcsa ezen mutató alapos megértésében és a költés ennek megfelelő stratégiai allokálásában rejlik.**
