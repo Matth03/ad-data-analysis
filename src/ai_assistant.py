@@ -4,7 +4,7 @@ import pandas as pd
 from dotenv import load_dotenv
 from google import genai
 
-# Load sensitive environment variables (API keys) from the hidden .env file
+# Load sensitive environment variables from the .env file
 load_dotenv()
 
 # Initialize the Gemini AI client using the secure API key from our environment
@@ -38,7 +38,7 @@ def get_ai_insight():
     # --- Step 3: AI Generation ---
     try:
         response = client.models.generate_content(
-            model="gemini-2.0-flash",
+            model="gemini-2.5-flash",
             contents=f"Te egy marketing elemző vagy. Adatok: {data_summary}. Kérlek elemezd magyarul!"
         )
         return response.text

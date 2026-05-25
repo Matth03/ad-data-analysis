@@ -6,7 +6,7 @@ import plotly.express as px
 # Configuration
 st.set_page_config(page_title="Marketing Analytics Dashboard", layout="wide")
 
-st.title("📈 Marketing ETL & AI Insights Dashboard")
+st.title("Marketing ETL & AI Insights Dashboard")
 st.markdown("This dashboard displays data automatically updated by the GitHub Actions pipeline.")
 
 
@@ -46,7 +46,7 @@ try:
 
     # --- 3. AI Insights Module ---
     st.divider()
-    st.subheader("🤖 AI Assistant Weekly Analysis")
+    st.subheader("AI Assistant Weekly Analysis")
 
     if st.button("Generate/Read Latest Insight"):
         try:
