@@ -7,7 +7,7 @@ This project is a fully automated **End-to-End Data Engineering** solution that 
 * **Data Source:** Google Trends (via Pytrends) & Simulated Ad Data
 * **Storage:** SQLite
 * **Orchestration:** GitHub Actions
-* **AI Engine:** Google Gemini 2.0 Flash
+* **AI Engine:** Google Gemini 2.5 Flash
 * **Visualization:** Streamlit & Plotly (Interactive Dashboard)
 
 
