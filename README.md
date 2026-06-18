@@ -15,7 +15,7 @@ This project is a fully automated **End-to-End Data Engineering** solution that 
 ### System Architecture
 1.  **ETL Process:** A weekly GitHub Action triggers the extraction of marketing data, which is then cleaned and transformed using Pandas.
 2.  **Database Management:** Processed data is stored in an SQLite database (`marketing_data.db`), ensuring data persistence and historical tracking.
-3.  **AI Analysis:** The system feeds the latest metrics into the **Gemini 2.0 Flash** model to generate a professional marketing report (`weekly_report.txt`).
+3.  **AI Analysis:** The system feeds the latest metrics into the **Gemini 2.5 Flash** model to generate a professional marketing report (`weekly_report.txt`).
 4.  **Automated Deployment:** Post-execution, the bot commits the updated database back to the repository, triggering an instant update on the live dashboard.
 5.  **Interactive BI:** A hosted **Streamlit** application provides real-time visualization, allowing users to explore trends and read AI insights.
 
